@@ -1,0 +1,27 @@
+#
+# These groups are read by MariaDB command-line tools
+# Use it for options that affect only one utility
+#
+
+[mysql]
+no-auto-rehash
+socket                          = /var/lib/mysql/mysql.sock
+
+[mysql_upgrade]
+socket                          = /var/lib/mysql/mysql.sock
+
+[mysqladmin]
+
+[mysqlbinlog]
+
+[mysqlcheck]
+
+[mysqldump]
+socket                          = /var/lib/mysql/mysql.sock
+
+[mysqlimport]
+
+[mysqlshow]
+
+[mysqlslap]
+

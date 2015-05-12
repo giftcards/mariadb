@@ -1,0 +1,35 @@
+#
+# These groups are read by MariaDB command-line tools
+# Use it for options that affect only one utility
+#
+
+[mysql]
+socket=<%= @socket %>
+
+[mysql_upgrade]
+socket=<%= @socket %>
+
+[mysqladmin]
+socket=<%= @socket %>
+
+[mysqlbinlog]
+socket=<%= @socket %>
+
+[mysqlcheck]
+socket=<%= @socket %>
+
+[mysqldump]
+socket=<%= @socket %>
+max_allowed_packet=<%= @maxAllowedPacket %>
+
+[mysqlimport]
+socket=<%= @socket %>
+
+[mysqlshow]
+socket=<%= @socket %>
+
+[mysqlslap]
+socket=<%= @socket %>
+
+[client]
+socket=<%= @socket %>

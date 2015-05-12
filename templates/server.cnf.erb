@@ -1,0 +1,133 @@
+#
+# These groups are read by MariaDB server.
+# Use it for options that only the server (but not clients) should see
+#
+# See the examples of server my.cnf files in /usr/share/mysql/
+#
+
+# this is read by the standalone daemon and embedded servers
+[server]
+
+# this is only for the mysqld standalone daemon
+[mysqld]
+
+# Justin Specials
+character_set_server=<%= @characterSetServer %>
+collation_server=<%= @collationServer %>
+
+# Misc Settings
+# -------------
+datadir=<%= @datadir %>
+tmpdir=<%= @tmpdir %>
+socket=<%= @socket %>
+table_open_cache=<%= @tableOpenCache %>
+thread_cache_size=<%= @threadCacheSize %>
+back_log=<%= @backLog %>
+max_connect_errors=<%= @maxConnectErrors %>
+open_files_limit=<%= @openFilesLimit %>
+interactive_timeout=<%= @interactiveTimeout %>
+wait_timeout=<%= @waitTimeout %>
+
+# Added to prevent DNS lookups from causing performance issues
+skip_name_resolve=<%= @skipNameResolve %>
+
+table_open_cache=<%= @tableOpenCache %>
+thread_cache_size=<%= @threadCacheSize %>
+thread_concurrency=<%= @threadConcurrency %>
+max_connections=<%= @maxConnections %>
+tmp_table_size=<%= @tmpTableSize %>
+
+# Slow Query Log Settings
+# -----------------------
+slow_query_log=<%= @slowQueryLog %>
+slow_query_log_file=<%= @slowQueryLogFile %>
+long_query_time=<%= @longQueryTime %>
+log_queries_not_using_indexes=<%= @logQueriesNotUsingIndexes %>
+
+# Global, Non Engine-Specific Buffers
+# -----------------------------------
+tmp_table_size=<%= @tmpTableSize %>
+max_allowed_packet=<%= @maxAllowedPacket %>
+max_heap_table_size=<%= @maxHeapTableSize %>
+query_cache_size=<%= @queryCacheSize %>
+query_cache_type=<%= @queryCacheType %>
+
+
+# Per-Thread Buffers
+# ------------------
+sort_buffer_size=<%= @sortBufferSize %>
+read_buffer_size=<%= @readBufferSize %>
+read_rnd_buffer_size=<%= @readRndBufferSize %>
+join_buffer_size=<%= @joinBufferSize %>
+
+default_storage_engine=<%= @defaultStorageEngine %>
+
+# MyISAM
+# ------
+key_buffer_size=<%= @keyBufferSize %>
+myisam_sort_buffer_size=<%= @myisamSortBufferSize %>
+
+# InnoDB
+# ------
+innodb_flush_log_at_trx_commit=<%= @innodbFlushLogAtTrxCommit %>
+innodb_log_files_in_group=<%= @innodbLogFilesInGroup %>
+innodb_log_buffer_size=<%= @innodbLogBufferSize %>
+innodb_additional_mem_pool_size=<%= @innodbAdditionalMemPoolSize %>
+innodb_lock_wait_timeout=<%= @innodbLockWaitTimeout %>
+innodb_log_file_size=<%= @innodbLogFileSize %>
+innodb_buffer_pool_size=<%= @innodbBufferPoolSize %>
+innodb_file_per_table=<%= @innodbFilePerTable %>
+innodb_thread_concurrency=<%= @innodbThreadConcurrency %>
+innodb_read_io_threads=<%= @innodbReadIoThreads %>
+innodb_write_io_threads=<%= @innodbWriteIoThreads %>
+
+# _____________________________ 
+#< Replication/Backup Settings >
+# ----------------------------- 
+#        \   ^__^
+#         \  (oo)\_______
+#            (__)\       )\/\
+#                ||----w |
+#                ||     ||
+
+server-id=<%= @serverId %>
+
+# It may be wise to include the server-name or an easy identifier
+# to the server in these logs, such as 'log-bin=/var/lib/mysqllogs/db1-bin-log'
+log_bin=<%= @logBin %>
+log_bin_index=<%= @logBinIndex %>
+relay_log=<%= @relayLog %>
+relay_log_index=<%= @relayLogIndex %>
+relay_log_space_limit=<%= @relayLogSpaceLimit %>
+expire_logs_days=<%= @expireLogsDays %>
+log_slave_updates=<%= @logSlaveUpdates %>
+
+
+# Enable this to make replication more resilient against server 
+# crashes and restarts, but can cause higher I/O on the server.
+sync_binlog=<%= @syncBinlog %>
+binlog_format=<%= @binlogFormat %>
+
+# MySQL 5.0+ Only
+# Uncomment the following when enabling multi-master replication
+# Do NOT uncomment these unless you know exactly what you are doing!
+auto_increment_increment=<%= @autoIncrementIncrement %>
+auto_increment_offset=<%= @autoIncrementOffset %>
+
+# this is only for embedded server
+[embedded]
+
+# This group is only read by MariaDB-5.5 servers.
+# If you use the same .cnf file for MariaDB of different versions,
+# use this group for options that older servers don't understand
+[mysqld-5.5]
+
+# These two groups are only read by MariaDB servers, not by MySQL.
+# If you use the same .cnf file for MySQL and MariaDB,
+# you can put MariaDB-only options here
+[mariadb]
+
+[mariadb-5.5]
+
+[mysqld_safe]
+syslog
